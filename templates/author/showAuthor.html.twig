@@ -1,0 +1,20 @@
+<h1>Author Details</h1>
+
+{% if author %}
+    <h2>{{ author.username|upper }}</h2>
+    <p>Email: {{ author.email }}</p>
+
+    <h3>Books by {{ author.username|upper }}:</h3>
+    {% if author.books is not empty %}
+        <ul>
+            {% for book in author.books %}
+                <li>{{ book.Title }} ({{ book.publicationDate|date('Y-m-d') }})</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No books found for this author.</p>
+    {% endif %}
+
+{% else %}
+    <p>No author found.</p>
+{% endif %}

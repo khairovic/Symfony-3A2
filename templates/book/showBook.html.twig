@@ -1,0 +1,11 @@
+<h1>Book Details</h1>
+
+{% if book is not empty %}
+    {% for b in book %}
+        <h2>{{ b.Title|upper }}</h2>
+        <p>Publication Date: {{ b.publicationDate|date('Y-m-d') }}</p>
+        <p>Author: {{ b.author.username }}</p>
+    {% endfor %}
+{% else %}
+    <p>No books found.</p>
+{% endif %}

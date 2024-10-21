@@ -1,0 +1,16 @@
+<h1> Authors' list </h1>
+<table>
+{% set total_books = 0 %}
+{% for auth in authors %}
+<tr>
+<td> {{auth.id}} </td>
+<td> {{auth.username|upper}} </td>
+<td> {{auth.email}} </td>
+<td><a href="{{ path('showauth', {'id': auth.id}) }}">Show</a></td>
+<td><a href="{{ path('update_author', {'id': auth.id}) }}">Update</a></td>
+<td><a href="{{ path('deleteauth', {'id': auth.id}) }}">Delete</a></td>
+</tr>
+{% else %}
+No authors found.
+{% endfor %}
+</table>

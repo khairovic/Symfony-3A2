@@ -1,0 +1,16 @@
+<h1> Books' list </h1>
+<table>
+{% for book in books %}
+<tr>
+<td> {{book.id}} </td>
+<td> {{book.Title|upper}} </td>
+<td> {{book.publicationDate|date('Y-m-d')}} </td>
+<td> {{book.enabled}} </td>
+<td><a href="{{ path('showbook', {'id': book.id}) }}">Show</a></td>
+<td><a href="{{ path('update_book', {'id': book.id}) }}">Update</a></td>
+<td><a href="{{ path('deletebook', {'id': book.id}) }}">Delete</a></td>
+</tr>
+{% else %}
+No books found.
+{% endfor %}
+</table>
